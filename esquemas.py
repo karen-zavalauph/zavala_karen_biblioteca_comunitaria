@@ -1,5 +1,11 @@
-from pydantic import BaseModel, ConfigDict, Field
+
 from modelos.ejemplar import EstadoEjemplar
+from datetime import date
+from pydantic import BaseModel, ConfigDict, Field, model_validator
+from typing import Literal
+
+
+
 
 class AutorEntrada(BaseModel):
     nombre_autor: str= Field(min_length=1, max_length=150)
@@ -50,5 +56,49 @@ class EjemplarEntrada(BaseModel):
 
 
 class EjemplarRespuesta(EjemplarEntrada):
+    id: int
+    model_config = ConfigDict(from_attributes=True)
+
+
+
+class PrestamoEntrada(BaseModel):
+    ejemplar_id: int = Field(gt=0)
+    lector_id: int = Field(gt=0)
+    fecha_prestamo: date
+    fecha_limite: date
+    fecha_devolucion: date | None = None
+
+    @model_validator(mode="after")
+    def validar_fechas(self):
+        if self.fecha_limite < self.fecha_prestamo:
+            raise ValueError(
+                "La fecha límite no puede ser anterior a la fecha del préstamo"
+            )
+
+        if (
+            self.fecha_devolucion is not None
+            and self.fecha_devolucion < self.fecha_prestamo
+        ):
+            raise ValueError(
+                "La fecha de devolución no puede ser anterior al préstamo"
+            )
+
+        return self
+
+
+class PrestamoRespuesta(PrestamoEntrada):
+    id: int
+    model_config = ConfigDict(from_attributes=True)
+
+
+
+
+class MultaEntrada(BaseModel):
+    prestamo_id: int = Field(gt=0)
+    monto: float = Field(gt=0)
+    pagada: Literal["si", "no"] = "no"
+
+
+class MultaRespuesta(MultaEntrada):
     id: int
     model_config = ConfigDict(from_attributes=True)

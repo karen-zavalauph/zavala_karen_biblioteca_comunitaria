@@ -1,4 +1,11 @@
 BEGIN TRANSACTION;
+
+CREATE TABLE IF NOT EXISTS Usuario (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre_usuario TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS "Autor" (
 	"id"	INTEGER,
 	"nombre_autor"	TEXT NOT NULL,
