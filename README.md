@@ -1,4 +1,4 @@
-<img width="922" height="572" alt="diagrama UML biblioteca comunitaria drawio" src="https://github.com/user-attachments/assets/dbd4ae44-dcfa-4fdc-82ee-861f4545491b" />Entidad-Relación
+
 
 Autor-Libros-Ejemplar-Lector-Prestamos-Multas
 <img width="920" height="582" alt="diagrama ER Biblioteca Comunitaria drawio" src="https://github.com/user-attachments/assets/ee555c47-afb1-4a14-9f90-fbd66794b9f8" />
