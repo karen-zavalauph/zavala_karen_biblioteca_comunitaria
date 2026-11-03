@@ -187,7 +187,7 @@ def actualizar_prestamo(
             ).days
 
             if dias_tarde > 0:
-                monto = dias_tarde * 5.00
+                monto = dias_tarde * 5.00    #se calcula la multa de 5.00 por día de atraso
                 multa = conexion.execute(
                     "SELECT id, pagada FROM Multa WHERE prestamo_id = ?",
                     (prestamo_id,),

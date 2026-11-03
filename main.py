@@ -6,6 +6,7 @@ from routers.lectores import router as router_lectores
 from routers.ejemplares import router as router_ejemplares
 from routers.prestamos import router as router_prestamos
 from routers.multas import router as router_multas
+from routers.usuarios import router as router_usuarios
 
 
 app=FastAPI(
@@ -20,6 +21,7 @@ app.include_router(router_lectores)
 app.include_router(router_ejemplares)
 app.include_router(router_prestamos)
 app.include_router(router_multas)
+app.include_router(router_usuarios)
 
 @app.get("/")
 def inicio():
