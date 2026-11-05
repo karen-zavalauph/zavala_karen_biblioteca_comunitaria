@@ -8,3 +8,4 @@ class AutorRepositorio(RepositorioBase):
     columnas = {
         "nombre_autor": "nombre_autor",
     }
+
