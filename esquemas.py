@@ -109,6 +109,10 @@ class UsuarioEntrada(BaseModel):
     nombre_usuario: str = Field(min_length=1, max_length=150)
     contrasena: str = Field(min_length=1, max_length=150)
 
+class LoginEntrada(BaseModel):
+    nombre_usuario: str = Field(min_length=1, max_length=150)
+    contrasena: str = Field(min_length=1, max_length=150)
+
 class UsuarioRespuesta(BaseModel):
     nombre_usuario: str
     id: int

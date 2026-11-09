@@ -10,3 +10,15 @@ Autor-Libros-Ejemplar-Lector-Prestamos-Multas
 <img width="922" height="572" alt="diagrama UML biblioteca comunitaria drawio" src="https://github.com/user-attachments/assets/d0a00e69-9f0e-48a4-a329-1e2da44cc20c" />
 
 
+
+
+
+
+
+
+
+Enlaces de API Biblioteca Comunitaria
+
+API: http://127.0.0.1:8000 
+Login: http://127.0.0.1:8000/frontend/login.html 
+Dashboard:http://127.0.0.1:8000/frontend/dashboard.html 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel | Biblioteca Comunitaria</title>
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body class="pagina-dashboard">
+    <main class="contenedor">
+        <section class="tarjeta">
+            <header class="encabezado-panel">
+                <div>
+                    <h1>Biblioteca Comunitaria</h1>
+                    <p>Panel de administración</p>
+                </div>
+                <button id="cerrar-sesion" type="button">Cerrar sesión</button>
+            </header>
+
+            <h2>Autores</h2>
+
+            
+            <form id="formulario-autor">
+    <label for="nombre-autor">Nombre del autor</label>
+    <input
+        id="nombre-autor"
+        name="nombre-autor"
+        type="text"
+        required
+        maxlength="150"
+    >
+    <button type="submit">Agregar autor</button>
+</form>
+            <p id="mensaje" role="status"></p>
+
+         <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del autor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-autores"></tbody>
+            </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/frontend/dashboard.js"></script>
+</body>
+</html>
