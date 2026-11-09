@@ -7,8 +7,24 @@
     <link rel="stylesheet" href="/frontend/style.css">
 </head>
 <body class="pagina-dashboard">
+
+    <nav class="menu-superior" aria-label="Menú principal">
+        <span class="marca-menu">Biblioteca Comunitaria</span>
+
+        <div class="enlaces-menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#autores">Autores</a>
+            <a href="#libros">Libros</a>
+            <a href="#ejemplares">Ejemplares</a>
+            <a href="#lectores">Lectores</a>
+            <a href="#prestamos">Préstamos</a>
+            <a href="#multas">Multas</a>
+        </div>
+    </nav>
+
     <main class="contenedor">
         <section class="tarjeta">
+
             <header class="encabezado-panel">
                 <div>
                     <h1>Biblioteca Comunitaria</h1>
@@ -17,35 +33,203 @@
                 <button id="cerrar-sesion" type="button">Cerrar sesión</button>
             </header>
 
-            <h2>Autores</h2>
+            <section id="inicio" class="seccion-inicio">
+                <h2>Inicio</h2>
+                <p>Resumen de la biblioteca comunitaria</p>
 
-            
-            <form id="formulario-autor">
-    <label for="nombre-autor">Nombre del autor</label>
-    <input
-        id="nombre-autor"
-        name="nombre-autor"
-        type="text"
-        required
-        maxlength="150"
-    >
-    <button type="submit">Agregar autor</button>
-</form>
-            <p id="mensaje" role="status"></p>
+                <div class="rejilla-kpi">
+                    <article class="tarjeta-kpi">
+                        <h3>Libros registrados</h3>
+                        <p id="kpi-libros">—</p>
+                    </article>
 
-         <div class="tabla-contenedor">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre del autor</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla-autores"></tbody>
-            </table>
+                    <article class="tarjeta-kpi">
+                        <h3>Ejemplares disponibles</h3>
+                        <p id="kpi-ejemplares-disponibles">—</p>
+                    </article>
+
+                    <article class="tarjeta-kpi">
+                        <h3>Lectores registrados</h3>
+                        <p id="kpi-lectores">—</p>
+                    </article>
+
+                    <article class="tarjeta-kpi">
+                        <h3>Préstamos activos</h3>
+                        <p id="kpi-prestamos-activos">—</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="autores" class="seccion-modulo">
+                <h2>Autores</h2>
+
+                <form id="formulario-autor">
+                    <label for="nombre-autor">Nombre del autor</label>
+                    <input
+                        id="nombre-autor"
+                        name="nombre-autor"
+                        type="text"
+                        required
+                        maxlength="150"
+                    >
+                    <button type="submit">Agregar autor</button>
+                </form>
+
+                <p id="mensaje" role="status"></p>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre del autor</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-autores"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="seccion-modulo modulo-libros" id="libros">
+    <h2>Libros</h2>
+
+    <form id="formulario-libro">
+        <div class="rejilla-formulario-libro">
+            <div>
+                <label for="libro-titulo">Título</label>
+                <input id="libro-titulo" name="titulo" type="text" required>
             </div>
-        </section>
+
+            <div>
+                <label for="libro-isbn">ISBN</label>
+                <input id="libro-isbn" name="isbn" type="text" required>
+            </div>
+
+            <div>
+                <label for="libro-autor">Autor</label>
+                <select id="libro-autor" name="autor_id" required>
+                    <option value="">Selecciona un autor</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="libro-categoria">Categoría</label>
+                <input id="libro-categoria" name="categoria" type="text" required>
+            </div>
+
+            <div>
+                <label for="libro-anio">Año</label>
+                <input id="libro-anio" name="anio" type="number" required>
+            </div>
+
+            <div>
+                <label for="libro-editorial">Editorial</label>
+                <input id="libro-editorial" name="editorial" type="text" required>
+            </div>
+        </div>
+
+        <button type="submit">Agregar libro</button>
+    </form>
+
+    <div class="busqueda-libros">
+        <label for="buscar-libro">Buscar libro</label>
+        <input id="buscar-libro" type="search" placeholder="Buscar por título o ISBN">
+    </div>
+
+    <p id="mensaje-libros" role="status"></p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>ISBN</th>
+                    <th>Autor ID</th>
+                    <th>Categoría</th>
+                    <th>Año</th>
+                    <th>Editorial</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-libros"></tbody>
+        </table>
+    </div>
+</section>
+
+            <section class="seccion-modulo modulo-ejemplares" id="ejemplares">
+    <h2>Ejemplares</h2>
+
+    <form id="formulario-ejemplar">
+        <div class="rejilla-formulario-ejemplar">
+            <div>
+                <label for="ejemplar-libro">Libro</label>
+                <select id="ejemplar-libro" required>
+                    <option value="">Selecciona un libro</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="ejemplar-codigo">Código</label>
+                <input id="ejemplar-codigo" type="text" required>
+            </div>
+
+            <div>
+                <label for="ejemplar-estado">Estado</label>
+                <select id="ejemplar-estado" required>
+                    <option value="disponible">Disponible</option>
+                    <option value="dañado">Dañado</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit">Agregar ejemplar</button>
+    </form>
+
+    <div class="busqueda-ejemplares">
+        <label for="buscar-ejemplar">Buscar ejemplar por código</label>
+        <input id="buscar-ejemplar" type="search" placeholder="Escribe el código">
+    </div>
+
+    <p id="mensaje-ejemplares" role="status"></p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Libro ID</th>
+                    <th>Código</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-ejemplares"></tbody>
+        </table>
+    </div>
+</section>
+
+
+
+
+<!--estos son los modulos que falta agregar
+            <section class="seccion-modulo" id="lectores">
+                <h2>Lectores</h2>
+                <p>Este módulo lo construiremos a continuación.</p>
+            </section>
+
+            <section class="seccion-modulo" id="prestamos">
+                <h2>Préstamos</h2>
+                <p>Este módulo lo construiremos a continuación.</p>
+            </section>
+
+            <section class="seccion-modulo" id="multas">
+                <h2>Multas</h2>
+                <p>Este módulo lo construiremos a continuación.</p>
+            </section>
+
+        </section>-->
     </main>
 
     <script src="/frontend/dashboard.js"></script>

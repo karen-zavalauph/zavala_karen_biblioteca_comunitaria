@@ -195,3 +195,203 @@ button:hover {
         width: 100%;
     }
 }
+
+
+
+
+
+/*estilos para tarjetas KPI*/
+
+/* Resumen de Inicio */
+.seccion-inicio {
+    margin: 24px 0 36px;
+}
+
+.rejilla-kpi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.tarjeta-kpi {
+    padding: 20px;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    background: #eff6ff;
+}
+
+.tarjeta-kpi h3 {
+    margin: 0 0 12px;
+    color: #475569;
+    font-size: 16px;
+}
+
+.tarjeta-kpi p {
+    margin: 0;
+    color: #1d4ed8;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+
+
+/* estilo para menú superior*/
+/* Menú superior */
+.pagina-dashboard .menu-superior {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px 24px;
+    padding: 14px clamp(16px, 4vw, 40px);
+    background: #1e3a8a;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+}
+
+.pagina-dashboard .marca-menu {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pagina-dashboard .enlaces-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.pagina-dashboard .enlaces-menu a {
+    display: inline-block;
+    padding: 9px 12px;
+    border-radius: 6px;
+    color: #e0e7ff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagina-dashboard .enlaces-menu a:hover,
+.pagina-dashboard .enlaces-menu a:focus-visible {
+    background: #fff;
+    color: #1e3a8a;
+    outline: none;
+}
+
+.pagina-dashboard section[id] {
+    scroll-margin-top: 90px;
+}
+
+@media (max-width: 760px) {
+    .pagina-dashboard .menu-superior {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .pagina-dashboard .enlaces-menu {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 4px;
+    }
+
+    .pagina-dashboard .enlaces-menu a {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+/*estilo para seccion de libros*/
+/* Formulario y búsqueda de libros */
+.rejilla-formulario-libro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.rejilla-formulario-libro label,
+.busqueda-libros label {
+    display: block;
+    margin: 0 0 6px;
+    font-weight: 600;
+}
+
+.rejilla-formulario-libro input,
+.rejilla-formulario-libro select,
+.busqueda-libros input {
+    width: 100%;
+    min-width: 0;
+}
+
+.pagina-dashboard #formulario-libro > button {
+    width: auto;
+    margin-top: 4px;
+}
+
+.busqueda-libros {
+    max-width: 420px;
+    margin: 24px 0 12px;
+}
+
+.modulo-libros {
+    margin-top: 36px;
+}
+
+@media (max-width: 600px) {
+    .pagina-dashboard #formulario-libro > button {
+        width: 100%;
+    }
+}
+
+
+
+/* Formulario y búsqueda de ejemplares */
+.rejilla-formulario-ejemplar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.rejilla-formulario-ejemplar label,
+.busqueda-ejemplares label {
+    display: block;
+    margin: 0 0 6px;
+    font-weight: 600;
+}
+
+.rejilla-formulario-ejemplar input,
+.rejilla-formulario-ejemplar select,
+.busqueda-ejemplares input {
+    width: 100%;
+    min-width: 0;
+}
+
+.pagina-dashboard #formulario-ejemplar > button {
+    width: auto;
+    margin-top: 4px;
+}
+
+.busqueda-ejemplares {
+    max-width: 420px;
+    margin: 24px 0 12px;
+}
+
+@media (max-width: 600px) {
+    .pagina-dashboard #formulario-ejemplar > button {
+        width: 100%;
+    }
+}

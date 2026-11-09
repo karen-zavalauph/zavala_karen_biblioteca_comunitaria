@@ -11,6 +11,8 @@ from routers.multas import router as router_multas
 from routers.usuarios import router as router_usuarios
 from seguridad import obtener_usuario_actual
 
+from fastapi.responses import RedirectResponse
+
 
 app=FastAPI(
     title="API de Biblioteca Comunitaria",
@@ -51,6 +53,6 @@ app.include_router(
 
 app.include_router(router_usuarios)
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def inicio():
-    return {"mensaje": "API de Biblioteca Comunitaria"}
+    return RedirectResponse(url="/frontend/login.html")
