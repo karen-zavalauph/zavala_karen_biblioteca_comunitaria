@@ -20,6 +20,11 @@ const selectorLibroEjemplar = document.getElementById("ejemplar-libro");
 let ejemplaresCargados = [];
 let ejemplarEditandoId = null;
 
+//referencias a lectores
+const tablaLectores = document.getElementById("tabla-lectores");
+const mensajeLectores = document.getElementById("mensaje-lectores");
+let lectoresCargados = [];
+
 
 
 if (!token) {
@@ -31,6 +36,7 @@ if (!token) {
     cargarAutoresEnSelector();
     cargarEjemplares();
     cargarLibrosEnSelector();
+    cargarLectores();
 }
 
 async function cargarAutores() {
@@ -860,4 +866,77 @@ tablaEjemplares.addEventListener("click", (evento) => {
         behavior: "smooth",
         block: "center"
     });
+});
+
+
+//función de lectores
+async function cargarLectores() {
+    mensajeLectores.textContent = "Cargando lectores...";
+
+    try {
+        const respuesta = await fetch("/lectores/", {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (respuesta.status === 401) {
+            sessionStorage.removeItem("access_token");
+            window.location.href = "/frontend/login.html";
+            return;
+        }
+
+        if (!respuesta.ok) {
+            throw new Error(
+                `No se pudieron cargar los lectores (HTTP ${respuesta.status}).`
+            );
+        }
+
+        lectoresCargados = await respuesta.json();
+        mostrarLectores(lectoresCargados);
+
+        mensajeLectores.textContent = lectoresCargados.length
+            ? ""
+            : "Todavía no hay lectores registrados.";
+    } catch (error) {
+        mensajeLectores.textContent = error.message;
+    }
+}
+
+function mostrarLectores(lectores) {
+    tablaLectores.replaceChildren();
+
+    lectores.forEach((lector) => {
+        const fila = document.createElement("tr");
+
+        [
+            lector.id,
+            lector.nombre,
+            lector.identificacion,
+            lector.telefono
+        ].forEach((valor) => {
+            const celda = document.createElement("td");
+            celda.textContent = valor;
+            fila.appendChild(celda);
+        });
+
+        const celdaAcciones = document.createElement("td");
+        fila.appendChild(celdaAcciones);
+        tablaLectores.appendChild(fila);
+    });
+}
+
+document.getElementById("buscar-lector").addEventListener("input", (evento) => {
+    const busqueda = evento.target.value.trim().toLocaleLowerCase();
+
+    const filtrados = lectoresCargados.filter((lector) =>
+        lector.nombre.toLocaleLowerCase().includes(busqueda) ||
+        lector.identificacion.toLocaleLowerCase().includes(busqueda)
+    );
+
+    mostrarLectores(filtrados);
+
+    mensajeLectores.textContent = filtrados.length
+        ? ""
+        : "No se encontraron lectores que coincidan con la búsqueda.";
 });

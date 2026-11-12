@@ -213,11 +213,55 @@
 
 
 
-<!--estos son los modulos que falta agregar
-            <section class="seccion-modulo" id="lectores">
-                <h2>Lectores</h2>
-                <p>Este módulo lo construiremos a continuación.</p>
-            </section>
+
+            <section class="seccion-modulo modulo-lectores" id="lectores">
+    <h2>Lectores</h2>
+
+    <form id="formulario-lector">
+        <div class="rejilla-formulario-lector">
+            <div>
+                <label for="lector-nombre">Nombre</label>
+                <input id="lector-nombre" type="text" required>
+            </div>
+
+            <div>
+                <label for="lector-identificacion">Identificación</label>
+                <input id="lector-identificacion" type="text" required>
+            </div>
+
+            <div>
+                <label for="lector-telefono">Teléfono</label>
+                <input id="lector-telefono" type="tel" required>
+            </div>
+        </div>
+
+        <button type="submit">Agregar lector</button>
+    </form>
+
+    <div class="busqueda-lectores">
+        <label for="buscar-lector">Buscar lector</label>
+        <input id="buscar-lector" type="search" placeholder="Nombre o identificación">
+    </div>
+
+    <p id="mensaje-lectores" role="status"></p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Identificación</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-lectores"></tbody>
+        </table>
+    </div>
+</section>
+
+
 
             <section class="seccion-modulo" id="prestamos">
                 <h2>Préstamos</h2>
@@ -229,7 +273,7 @@
                 <p>Este módulo lo construiremos a continuación.</p>
             </section>
 
-        </section>-->
+        </section>
     </main>
 
     <script src="/frontend/dashboard.js"></script>
