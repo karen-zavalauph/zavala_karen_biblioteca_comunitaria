@@ -436,3 +436,63 @@ button:hover {
         width: 100%;
     }
 }
+
+
+/* Formulario y búsqueda de préstamos */
+.rejilla-formulario-prestamo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.rejilla-formulario-prestamo label,
+.busqueda-prestamos label {
+    display: block;
+    margin: 0 0 6px;
+    font-weight: 600;
+}
+
+.rejilla-formulario-prestamo select,
+.rejilla-formulario-prestamo input,
+.busqueda-prestamos input {
+    width: 100%;
+    min-width: 0;
+}
+
+.pagina-dashboard #formulario-prestamo > button {
+    width: auto;
+    margin-top: 4px;
+}
+
+.busqueda-prestamos {
+    max-width: 420px;
+    margin: 24px 0 12px;
+}
+
+@media (max-width: 600px) {
+    .pagina-dashboard #formulario-prestamo > button {
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* Búsqueda de multas */
+.busqueda-multas {
+    max-width: 420px;
+    margin: 24px 0 12px;
+}
+
+.busqueda-multas label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.busqueda-multas input {
+    width: 100%;
+    min-width: 0;
+}

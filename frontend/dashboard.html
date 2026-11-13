@@ -199,7 +199,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Libro ID</th>
+                    <th>Libro</th>
                     <th>Código</th>
                     <th>Estado</th>
                     <th>Acciones</th>
@@ -263,15 +263,98 @@
 
 
 
-            <section class="seccion-modulo" id="prestamos">
-                <h2>Préstamos</h2>
-                <p>Este módulo lo construiremos a continuación.</p>
-            </section>
+            <section class="seccion-modulo modulo-prestamos" id="prestamos">
+    <h2>Préstamos</h2>
 
-            <section class="seccion-modulo" id="multas">
-                <h2>Multas</h2>
-                <p>Este módulo lo construiremos a continuación.</p>
-            </section>
+    <form id="formulario-prestamo">
+        <div class="rejilla-formulario-prestamo">
+            <div>
+                <label for="prestamo-ejemplar">Ejemplar disponible</label>
+                <select id="prestamo-ejemplar" required>
+                    <option value="">Selecciona un ejemplar</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="prestamo-lector">Lector</label>
+                <select id="prestamo-lector" required>
+                    <option value="">Selecciona un lector</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="prestamo-fecha">Fecha del préstamo</label>
+                <input id="prestamo-fecha" type="date" required>
+            </div>
+
+            <div>
+                <label for="prestamo-limite">Fecha límite</label>
+                <input id="prestamo-limite" type="date" required>
+            </div>
+        </div>
+
+        <button type="submit">Registrar préstamo</button>
+    </form>
+
+    <div class="busqueda-prestamos">
+        <label for="buscar-prestamo">Buscar préstamo</label>
+        <input
+            id="buscar-prestamo"
+            type="search"
+            placeholder="Busca por ID de lector o ejemplar"
+        >
+    </div>
+
+    <p id="mensaje-prestamos" role="status"></p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Libro / ejemplar</th>
+                    <th>Lector</th>
+                    <th>Fecha del préstamo</th>
+                    <th>Fecha límite</th>
+                    <th>Fecha de devolución</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-prestamos"></tbody>
+        </table>
+    </div>
+</section>
+
+            <section class="seccion-modulo modulo-multas" id="multas">
+    <h2>Multas</h2>
+    <p>Las multas por devolución tardía se generan desde el módulo de Préstamos.</p>
+
+    <div class="busqueda-multas">
+        <label for="buscar-multa">Buscar multa</label>
+        <input
+            id="buscar-multa"
+            type="search"
+            placeholder="ID del préstamo o estado de pago"
+        >
+    </div>
+
+    <p id="mensaje-multas" role="status"></p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Préstamo ID</th>
+                    <th>Monto</th>
+                    <th>Pagada</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-multas"></tbody>
+        </table>
+    </div>
+</section>
 
         </section>
     </main>
