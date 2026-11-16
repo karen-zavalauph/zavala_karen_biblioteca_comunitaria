@@ -1569,3 +1569,43 @@ tablaMultas.addEventListener("click", async (evento) => {
         mensajeMultas.textContent = error.message;
     }
 });
+
+
+
+const enlacesMenu = document.querySelectorAll(".enlaces-menu a");
+const vistasModulo = document.querySelectorAll(".vista-modulo");
+
+enlacesMenu.forEach((enlace) => {
+    enlace.addEventListener("click", (evento) => {
+        evento.preventDefault();
+
+        const idVista = enlace.getAttribute("href").slice(1);
+        const vistaSeleccionada = document.getElementById(idVista);
+
+        if (!vistaSeleccionada || !vistaSeleccionada.classList.contains("vista-modulo")) {
+            return;
+        }
+
+        vistasModulo.forEach((vista) => {
+            vista.classList.remove("activa");
+        });
+
+        vistaSeleccionada.classList.add("activa");
+
+        enlacesMenu.forEach((elemento) => {
+            elemento.classList.remove("activo");
+            elemento.removeAttribute("aria-current");
+        });
+
+        enlace.classList.add("activo");
+        enlace.setAttribute("aria-current", "page");
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+
+const enlaceInicio = document.querySelector('.enlaces-menu a[href="#inicio"]');
+if (enlaceInicio) {
+    enlaceInicio.classList.add("activo");
+    enlaceInicio.setAttribute("aria-current", "page");
+}

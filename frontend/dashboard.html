@@ -19,6 +19,7 @@
             <a href="#lectores">Lectores</a>
             <a href="#prestamos">Préstamos</a>
             <a href="#multas">Multas</a>
+            <button id="cerrar-sesion" type="button">Cerrar sesión</button>
         </div>
     </nav>
 
@@ -30,10 +31,10 @@
                     <h1>Biblioteca Comunitaria</h1>
                     <p>Panel de administración</p>
                 </div>
-                <button id="cerrar-sesion" type="button">Cerrar sesión</button>
+                
             </header>
 
-            <section id="inicio" class="seccion-inicio">
+            <section id="inicio" class="seccion-inicio vista-modulo activa">
                 <h2>Inicio</h2>
                 <p>Resumen de la biblioteca comunitaria</p>
 
@@ -60,7 +61,7 @@
                 </div>
             </section>
 
-            <section id="autores" class="seccion-modulo">
+            <section id="autores" class="seccion-modulo vista-modulo">
                 <h2>Autores</h2>
 
                 <form id="formulario-autor">
@@ -91,7 +92,7 @@
                 </div>
             </section>
 
-            <section class="seccion-modulo modulo-libros" id="libros">
+            <section class="seccion-modulo modulo-libros vista-modulo" id="libros">
     <h2>Libros</h2>
 
     <form id="formulario-libro">
@@ -158,7 +159,7 @@
     </div>
 </section>
 
-            <section class="seccion-modulo modulo-ejemplares" id="ejemplares">
+            <section class="seccion-modulo modulo-ejemplares vista-modulo" id="ejemplares">
     <h2>Ejemplares</h2>
 
     <form id="formulario-ejemplar">
@@ -214,7 +215,7 @@
 
 
 
-            <section class="seccion-modulo modulo-lectores" id="lectores">
+            <section class="seccion-modulo modulo-lectores vista-modulo" id="lectores">
     <h2>Lectores</h2>
 
     <form id="formulario-lector">
@@ -263,7 +264,7 @@
 
 
 
-            <section class="seccion-modulo modulo-prestamos" id="prestamos">
+            <section class="seccion-modulo modulo-prestamos vista-modulo" id="prestamos">
     <h2>Préstamos</h2>
 
     <form id="formulario-prestamo">
@@ -325,7 +326,7 @@
     </div>
 </section>
 
-            <section class="seccion-modulo modulo-multas" id="multas">
+            <section class="seccion-modulo modulo-multas vista-modulo" id="multas">
     <h2>Multas</h2>
     <p>Las multas por devolución tardía se generan desde el módulo de Préstamos.</p>
 

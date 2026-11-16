@@ -5,8 +5,8 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;;
+    background: #c1e0ff;
     color: #1e293b;
 }
 
@@ -62,7 +62,7 @@ button {
     padding: 12px;
     border: 0;
     border-radius: 6px;
-    background: #eb3f25;
+    background: #d66452;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -70,7 +70,7 @@ button {
 }
 
 button:hover {
-    background: #1d4ed8;
+    background: #bb7a63;
 }
 
 #mensaje {
@@ -495,4 +495,53 @@ button:hover {
 .busqueda-multas input {
     width: 100%;
     min-width: 0;
+}
+
+
+
+.vista-modulo {
+    display: none;
+}
+
+.vista-modulo.activa {
+    display: block;
+}
+
+
+
+/*agregar imagen de fondo en login*/
+/* Fondo de la página de login */
+body:not(.pagina-dashboard) {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.45)),
+        url("/frontend/fondo-biblioteca.jpg") center / cover no-repeat;
+}
+
+body:not(.pagina-dashboard) .tarjeta {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(5px);
+}
+
+
+
+/*imagen de fondo del dashboard*/
+/* Fondo del dashboard */
+body.pagina-dashboard {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.48), rgba(15, 23, 42, 0.48)),
+        url("/frontend/fondo-biblioteca-dashboard.jpg") center / cover no-repeat;
+    background-attachment: fixed;
+}
+
+.pagina-dashboard .tarjeta {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 600px) {
+    body.pagina-dashboard {
+        background-attachment: scroll;
+    }
 }
